@@ -241,6 +241,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header.hide {
+    transform: translateY(-110%);
 }
 
 .header-content {
@@ -287,6 +292,19 @@ body {
     gap: 20px;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 20px;
+    min-width: 48px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
 .icon-btn {
     text-decoration: none;
     color: #333;
@@ -316,6 +334,11 @@ body {
 .navbar {
     background-color: #003580;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.25s ease;
+}
+
+.navbar.hide {
+    transform: translateY(-110%);
 }
 
 .nav-menu {
@@ -703,6 +726,10 @@ body {
         font-size: 26px;
     }
 
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+
     .slide {
         height: 260px;
     }
@@ -723,13 +750,24 @@ body {
     }
 
     .nav-menu {
-        gap: 6px;
+        display: none;
+        flex-direction: column;
+        gap: 4px;
         justify-content: center;
+        background-color: #003580;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 0 0 14px 14px;
+    }
+
+    .nav-menu.mobile-open {
+        display: flex;
     }
 
     .nav-link {
-        padding: 10px 14px;
+        padding: 12px 16px;
         font-size: 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .reviews-grid {
@@ -744,6 +782,10 @@ body {
 @media (max-width: 480px) {
     .header-content {
         padding: 18px 0;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
     }
 
     .logo h1 {

@@ -467,6 +467,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', function(){
+            navMenu.classList.toggle('mobile-open');
+        });
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(){
+                if (navMenu.classList.contains('mobile-open')) {
+                    navMenu.classList.remove('mobile-open');
+                }
+            });
+        });
+    }
+
     // Search
     const searchBtn = document.querySelector('.search-bar button');
     const searchInput = document.querySelector('.search-bar input');
@@ -501,4 +516,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (prevBtn) prevBtn.addEventListener('click', previousSlide);
     if (nextBtn) nextBtn.addEventListener('click', nextSlide);
     setInterval(moveCarousel, 5000);
+
+    const header = document.querySelector('.header');
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.pageYOffset;
+    const hideAfter = 220;
+    const scrollDelta = 12;
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > lastScrollY + scrollDelta && currentScroll > hideAfter) {
+            header?.classList.add('hide');
+            navbar?.classList.add('hide');
+        } else if (currentScroll < lastScrollY - scrollDelta || currentScroll < hideAfter) {
+            header?.classList.remove('hide');
+            navbar?.classList.remove('hide');
+        }
+        lastScrollY = currentScroll;
+    });
 });
