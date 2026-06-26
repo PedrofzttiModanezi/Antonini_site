@@ -1,4 +1,6 @@
 // Dados de produtos
+const basePath = window.location.pathname.includes('/site_antonini/') ? '' : 'site_antonini/';
+
 const productNames = [
     'KIT FEMININO COPA AMARELO',
     'KIT MASCULINO COPA AMARELO',
@@ -28,14 +30,14 @@ const sizes = [
 ];
 
 const productImages = [
-    'imgs/gabi1.jpg',
-    'imgs/gabi2.png',
-    'imgs/lucca1.jpg',
-    'imgs/lucca2.jpg',
-    'imgs/lucca3.png',
-    'imgs/lucca4.png',
-    'imgs/pedrinho1.jpg',
-    'imgs/pedrinho2.png'
+    `${basePath}imgs/gabi1.jpg`,
+    `${basePath}imgs/gabi2.png`,
+    `${basePath}imgs/lucca1.jpg`,
+    `${basePath}imgs/lucca2.jpg`,
+    `${basePath}imgs/lucca3.png`,
+    `${basePath}imgs/lucca4.png`,
+    `${basePath}imgs/pedrinho1.jpg`,
+    `${basePath}imgs/pedrinho2.png`
 ];
 
 // Estado do carrinho
