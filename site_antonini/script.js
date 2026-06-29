@@ -22,12 +22,7 @@ const categories = [
     '+ Acessórios'
 ];
 
-const sizes = [
-    ['P', 'M', 'G', 'GG'],
-    ['P', 'M', 'G', 'GG', 'XXGG'],
-    ['12 anos'],
-    ['Único']
-];
+const sizes = ['P', 'M', 'G'];
 
 const productImages = [
     `${basePath}imgs/gabi1.jpg`,
@@ -104,7 +99,7 @@ function generateProduct() {
     const discount = randomBetween(3, 32);
     const currentPrice = Math.round(originalPrice * (1 - discount / 100));
     const installments = Math.floor(currentPrice / 3);
-    const productSizes = sizes[Math.floor(Math.random() * sizes.length)];
+    const productSizes = [...sizes];
     const image = productImages[Math.floor(Math.random() * productImages.length)];
     
     // cores possíveis
